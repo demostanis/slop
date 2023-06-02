@@ -34,6 +34,7 @@ void slop::Mouse::setCursor( int cursor ) {
     if ( currentCursor == cursor ) {
         return;
     }
+    currentCursor = cursor;
     XFreeCursor( x11->display, xcursor );
     xcursor = XCreateFontCursor( x11->display, cursor );
     XChangeActivePointerGrab( x11->display,

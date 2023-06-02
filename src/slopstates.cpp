@@ -67,7 +67,7 @@ void slop::SlopStart::update( SlopMemory& memory, double dt ) {
     if ( setStartPos && glm::distance( startPoint, mouse->getMousePos() ) >= memory.tolerance ) {
         memory.setState( (SlopState*)new SlopStartDrag( startPoint ) );
     }
-    if ( mouse->hoverWindow != None ) {
+    if ( mouse->hoverWindow != None && memory.tolerance > 0 ) {
         glm::vec4 rect = getWindowGeometry( mouse->hoverWindow, memory.nodecorations );
         memory.rectangle->setPoints( glm::vec2( (float)rect.x, (float)rect.y ), glm::vec2( (float)rect.x+rect.z, (float)rect.y+rect.w ) );
     }
